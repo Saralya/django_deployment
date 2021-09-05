@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Form</title>
+
+    </head>
+    <body>
+        <h3>This form is created by HTML code</h3>
+        <form action="" method="post">
+            <label for="user_name">Full Name</label>
+            <input type="text" name="user_name" value="Saralya" required> <!--proti ta input er jonno name field tar value unique hote hobe karon eta diyei form theke database e data pass hoy-->
+            <!--value field e ja dibo seta by default form e initially chole ashbe..etake pore change kora jay-->
+            <label for="user_email">User Email</label>
+            <input type="email" name="user_email" placeholder="Enter your email" value="" required>
+            
+            <input type="submit" name="submit" value="Submit">
+        </form>
+        <hr>
+        <h3>{{ heading_1 }}</h3>
+        <a href="{% url 'first_app:index' %}">Back</a>
+
+        <form action="" method="POST">
+            {{ test_form.as_p }}  <!--as_p diye bujhay form er input field gula k paragraph hisebe show koro-->
+            {% csrf_token %}
+            <input type="submit" name="submit" value="Submit">
+        </form>
+        <hr>
+        {% if form_submitted %}
+            <p>Name: {{user_name}}</p>
+            <p>Date of birth: {{user_dob}}</p>
+            <p>Email: {{user_email}}</p>
+            <p>Boolean Field: {{boolean_field}}</p>
+            <p>Character Field: {{char_field}}</p>
+            <p>Choice Field: {{choice_field}}</p>
+            <p>Choice Field Radio: {{choice_field1}}</p>
+            <p>Choice Field Multiple: {{choice_field2}}</p>
+            <p>Choice Field Multiple Radio: {{choice_field3}}</p>
+            <p>Name1: {{name}}</p>
+            <p>Number: {{number_field}}</p>
+            <p>Field: {{field}}</p>
+            
+        {% endif %}
+    </body>
+
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static "css/mystyle.css" %}">
+        <title>Home page of First app</title>
+
+    </head>
+    <body>
+        <h1>This is the home page of first app</h1>
+        {{ text_1 }}  <!--views.py theke kono kisu jodi index.html e show korate chai tahole context e dictionary ta bola hoise tar key ta ekhane dite hobe-->
+        <br>
+        <img src="{% static "images/image1.jpg" %}">
+        <br>
+        <a href="{% url 'first_app:form' %}">Add new</a>
+        <table border="1">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Instrument</th>
+            
+            </tr>
+
+            {% for row in musician %}
+
+            <tr>
+               <td> {{row.first_name}} </td> 
+               <td> {{row.last_name}} </td> 
+               <td> {{row.instrument}} </td> 
+            </tr>
+
+            {% endfor %} 
+        </table>
+    </body>
+
+
+</html>

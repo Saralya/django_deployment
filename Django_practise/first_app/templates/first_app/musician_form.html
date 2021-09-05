@@ -1,0 +1,21 @@
+<!--musician_form.html ei nam ta CreateView class by default expect kore-->
+<!--tai ei nam e html file create kore template ta banabo -->
+<!--onno nam dite chaile template_name variable e likhe dibo-->
+{% extends 'first_app/base.html' %}
+{% block body_block %}
+
+<!--jesob kaj e pk dhore kaj korte hoy (details/update) segular jonno evabe condition likhbo-->
+{% if form.instance.pk %}
+<h3>Update musician</h3>
+
+{% else %}
+<h3>Add new musician</h3>
+{% endif %}
+<form method="POST">
+    {{ form.as_p }}
+    {% csrf_token %}
+
+    <input type="submit" name="submit" value="Add" class="btn btn-primary btn-sm">
+
+</form>
+{% endblock %}
